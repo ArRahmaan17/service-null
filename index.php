@@ -11,22 +11,22 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./assets/img/favicon.png" rel="icon">
+  <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="./assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="./assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="./assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="./assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="index.php" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <img src="./assets/img/logo.png" alt="">
         <span>Company</span>
       </a>
 
@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <img src="assets/img/hero-img.png" class="img-fluid" alt="">
+          <img src="./assets/img/hero-img.png" class="img-fluid" alt="">
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            <img src="./assets/img/about.jpg" class="img-fluid" alt="">
           </div>
 
         </div>
@@ -127,7 +127,7 @@
             <div class="box">
               <h3 style="color: #07d5c0;">Home Plan</h3>
               <div class="price"><sup>Rp</sup>50.000<span>/Service</span></div>
-              <img src="assets/img/pricing-free.png" class="img-fluid" alt="">
+              <img src="./assets/img/pricing-free.png" class="img-fluid" alt="">
               <ul>
                 <li>Aida dere</li>
                 <li>Nec feugiat nisl</li>
@@ -144,7 +144,7 @@
               <span class="featured">Featured</span>
               <h3 style="color: #65c600;">School Plan</h3>
               <div class="price"><sup>Rp</sup>600.000<span>/Kelas</span></div>
-              <img src="assets/img/pricing-starter.png" class="img-fluid" alt="">
+              <img src="./assets/img/pricing-starter.png" class="img-fluid" alt="">
               <ul>
                 <li>Aida dere</li>
                 <li>Nec feugiat nisl</li>
@@ -161,7 +161,7 @@
               <span class="featured">Featured</span>
               <h3 style="color: #ff901c;">Business Plan</h3>
               <div class="price"><sup>Rp</sup>1.200.000<span>/Kantor</span></div>
-              <img src="assets/img/pricing-business.png" class="img-fluid" alt="">
+              <img src="./assets/img/pricing-business.png" class="img-fluid" alt="">
               <ul>
                 <li>Aida dere</li>
                 <li>Nec feugiat nisl</li>
@@ -177,7 +177,7 @@
             <div class="box">
               <h3 style="color: #ff0071;">Agency Plan</h3>
               <div class="price"><sup>Rp</sup>2.400.000<span>/gedung</span></div>
-              <img src="assets/img/pricing-ultimate.png" class="img-fluid" alt="">
+              <img src="./assets/img/pricing-ultimate.png" class="img-fluid" alt="">
               <ul>
                 <li>Aida dere</li>
                 <li>Nec feugiat nisl</li>
@@ -319,7 +319,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
               <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                <img src="./assets/img/team/team-1.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -338,7 +338,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="member">
               <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <img src="./assets/img/team/team-2.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -357,7 +357,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="member">
               <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                <img src="./assets/img/team/team-3.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -376,7 +376,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
             <div class="member">
               <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                <img src="./assets/img/team/team-4.jpg" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -493,7 +493,7 @@
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
-              <img src="assets/img/logo.png" alt="">
+              <img src="./assets/img/logo.png" alt="">
               <span>FlexStart</span>
             </a>
             <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>

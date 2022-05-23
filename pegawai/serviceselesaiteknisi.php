@@ -18,56 +18,58 @@ if ($_SESSION['role'] === 'teknisi') {
 ?>
 
 <?php if ($_SESSION['role'] === 'teknisi') : ?>
-  <!doctype html>
-  <html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title><?= $title ?></title>
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="../assets/css/sidebars.css" rel="stylesheet">
-    <link href="../assets/css/heroes.css" rel="stylesheet">
-    <link href="../assets/css/pricing.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <main class="container-fluid">
-      <?php include '../assets/components/sidebarpegawai.php' ?>
-      <main class="container-fluid">
-        <div class="col-12 px-4 py-5 my-5 border rounded shadow">
-          <?php if (isset($_GET['pesan'])) : ?>
-            <?php if ($_GET['pesan'] === "berhasil") : ?>
-              <div class="alert alert-success" role="alert">
-                <?= "Berhasil Menyelesaikan Pesanan Service" ?>
-              </div>
-            <?php endif ?>
-          <?php endif ?>
-          <h1 class="display-5 mb-5 fw-bold text-center">Service Yang Sudah Anda Kerjakan</h1>
-          <div class="col-lg-10 mx-auto">
-            <div class="row mb-3 text-center">
+  <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title><?= $title ?></title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light"><?= $title ?></div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Pesanan Jasa Service") ? 'active' : '' ; ?>" href="dashboardteknisi.php">Pesanan Masuk</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Service Sedang Proses") ? 'active' : '' ; ?>" href="serviceberjalanteknisi.php">Service Sedang Proses</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Riwayat Service Saya") ? 'active' : '' ; ?>" href="serviceselesaiteknisi.php">Riwayat Service Saya</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                      <button class="btn btn-primary d-none d-sm-block d-md-none" id="sidebarToggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                      </button>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $_SESSION['nama_pegawai'] ?></a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="updateuser.php?id=<?= $_SESSION['id_pegawai'] ?>">Update Account</a>
+                                        <a class="dropdown-item" href="../logout.php">Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container">
               <?php if ($jumlahdata > 0) : ?>
-                <table class="table table-responsive shadow">
+                <table class="table table-responsive">
                   <caption>List dari Service Yang Sudah Selesai</caption>
                   <thead class="table-dark">
                     <tr class="h5">
@@ -95,14 +97,14 @@ if ($_SESSION['role'] === 'teknisi') {
               <?php else : ?>
                 <h1> <?= $pesan; ?> </h1>
               <?php endif ?>
+              </div>
+              </div>
             </div>
-          </div>
         </div>
-      </main>
-    </main>
-
-    <script src="../assets/js/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-  </body>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- Core theme JS-->
+        <script src="../assets/js/sidebars.js"></script>
+    </body>
+</html>
 <?php endif ?>
