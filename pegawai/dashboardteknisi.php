@@ -1,25 +1,26 @@
 <?php
 session_start();
 if ($_SESSION['role'] === 'teknisi') {
-  include '../conn.php';
-  $title = "Pesanan Jasa Service";
-  $querypesanservice = "SELECT * FROM antriservice JOIN pelanggan ON antriservice.id_pelanggan = pelanggan.id_pelanggan WHERE antriservice.status = 'masuk'";
-  $exec = mysqli_query($conn, $querypesanservice);
-  $jumlahdata = mysqli_num_rows($exec);
-  if ($jumlahdata >= 1) {
-    $getAllData = mysqli_fetch_all($exec, MYSQLI_ASSOC);
-  } else {
-    $pesan = "Tidak Ada Service Hari ini <br> Sabar rezeki sudah ada yang ngatur";
-  }
+    include '../conn.php';
+    $title = "Pesanan Jasa Service";
+    $querypesanservice = "SELECT * FROM antriservice JOIN pelanggan ON antriservice.id_pelanggan = pelanggan.id_pelanggan WHERE antriservice.status = 'masuk'";
+    $exec = mysqli_query($conn, $querypesanservice);
+    $jumlahdata = mysqli_num_rows($exec);
+    if ($jumlahdata >= 1) {
+        $getAllData = mysqli_fetch_all($exec, MYSQLI_ASSOC);
+    } else {
+        $pesan = "Tidak Ada Service Hari ini <br> Sabar rezeki sudah ada yang ngatur";
+    }
 } else {
-  header("location:index.php");
+    header("location:index.php");
 }
 
 ?>
 
 <?php if ($_SESSION['role'] === 'teknisi') : ?>
-  <!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -31,15 +32,16 @@ if ($_SESSION['role'] === 'teknisi') {
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     </head>
+
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light"><?= $title ?></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Pesanan Jasa Service") ? 'active' : '' ; ?>" href="dashboardteknisi.php">Pesanan Masuk</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Service Sedang Proses") ? 'active' : '' ; ?>" href="serviceberjalanteknisi.php">Service Sedang Proses</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Riwayat Service Saya") ? 'active' : '' ; ?>" href="serviceselesaiteknisi.php">Riwayat Service Saya</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Pesanan Jasa Service") ? 'active' : ''; ?>" href="dashboardteknisi.php">Pesanan Masuk</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Service Sedang Proses") ? 'active' : ''; ?>" href="serviceberjalanteknisi.php">Service Sedang Proses</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Riwayat Service Saya") ? 'active' : ''; ?>" href="serviceselesaiteknisi.php">Riwayat Service Saya</a>
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -49,7 +51,7 @@ if ($_SESSION['role'] === 'teknisi') {
                     <div class="container-fluid">
                         <button class="btn btn-primary d-sm-block d-md-none d-lg-none" id="sidebarToggle">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                             </svg>
                         </button>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -68,35 +70,36 @@ if ($_SESSION['role'] === 'teknisi') {
                 </nav>
                 <!-- Page content-->
                 <div class="container">
-                <?php if ($jumlahdata > 0) : ?>
-                    <table class="table table-responsive">
-                        <caption>List dari Teknisi Yang Sedang Service</caption>
-                        <thead class="table-dark">
-                            <tr class="h5">
-                                <th scope="col">Nama Pelanggan</th>
-                                <th scope="col">Alamat Pelanggan</th>
-                                <th scope="col">Nomer Pelanggan</th>
-                                <th scope="col">Tanggal Antri</th>
-                                <th scope="col">Terima Service</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                <?php foreach ($getAllData as $t) : ?>
-                    <tr class="text-dark fw-bold">
-                        <td><?= $t['nama_pelanggan'] ?></td>
-                        <td><?= $t['alamat_pelanggan'] ?></td>
-                        <td><?= $t['no_telpon_pelanggan'] ?></td>
-                        <td><?= $t['tanggal_antri'] ?></td>
-                        <td>
-                            <a class="btn btn-info" href="prosesservice.php?id=<?= $t['id_antrian'] ?>">Terima Service</a>
-                        </td>
-                    </tr>
-                        <?php endforeach ?>
-                    </tbody>
-                    </table>
-                <?php else : ?>
-                    <h1> <?= $pesan; ?> </h1>
-                <?php endif ?>
+                    <div class="row justify-content-start">
+                        <?php if ($jumlahdata > 0) : ?>
+                            <table class="table table-responsive">
+                                <caption>List dari Teknisi Yang Sedang Service</caption>
+                                <thead class="table-dark">
+                                    <tr class="h5">
+                                        <td class="col-1">Nama Pelanggan</td>
+                                        <td class="col-1">Alamat Pelanggan</td>
+                                        <td class="col-1">Tanggal Antri</td>
+                                        <td class="col-1">Terima Service</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($getAllData as $t) : ?>
+                                        <tr class="text-dark">
+                                            <td class="col-1"><?= $t['nama_pelanggan'] ?></td>
+                                            <td class="col-1"><?= $t['alamat_pelanggan'] ?></td>
+                                            <td class="col-1"><?= $t['tanggal_antri'] ?></td>
+                                            <td class="col-1">
+                                                <a class="btn btn-info" href="prosesservice.php?id=<?= $t['id_antrian'] ?>">Terima Service</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        <?php else : ?>
+                            <h1> <?= $pesan; ?> </h1>
+                        <?php endif ?>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -105,5 +108,6 @@ if ($_SESSION['role'] === 'teknisi') {
         <!-- Core theme JS-->
         <script src="../assets/js/sidebars.js"></script>
     </body>
-</html>
+
+    </html>
 <?php endif ?>

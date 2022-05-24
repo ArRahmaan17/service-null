@@ -99,29 +99,29 @@ if ($_SESSION['role'] === 'admin') {
                         <thead class="table-dark">
                             <tr class="h5">
                                 <th scope="col">Nama Pelanggan</th>
-                                <th scope="col">Nomer Pelanggan</th>
-                                <th scope="col">Alamat Pelanggan</th>
-                                <th scope="col">Nama Teknisi</th>
+                                <th class="d-sm-none" scope="col">Nomer Pelanggan</th>
+                                <th class="d-sm-none" scope="col">Alamat Pelanggan</th>
+                                <th class="d-sm-none" scope="col">Nama Teknisi</th>
                                 <th scope="col">Tanggal Service</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                <?php foreach ($data as $t) : ?>
-                    <tr class="text-dark fw-bold">
-                        <td><?= $t['nama_pelanggan'] ?></td>
-                        <td><?= $t['no_telpon_pelanggan'] ?></td>
-                        <td><?= $t['alamat_pelanggan'] ?></td>
-                        <td><?= $t['nama_pegawai'] ?></td>
-                        <td><?= $t['tanggal_service'] ?></td>
-                        <td>
-                            <h5>
-                                <span class="badge bagde-md bg-success"><?= $t['status_service'] ?></span>
-                            </h5>
-                        </td>
-                    </tr>
-                        <?php endforeach ?>
-                    </tbody>
+                    <?php foreach ($data as $t) : ?>
+                            <tr class="text-dark fw-bold">
+                                <td><?= $t['nama_pelanggan'] ?></td>
+                                <td class="d-sm-none" ><?= $t['no_telpon_pelanggan'] ?></td>
+                                <td class="d-sm-none" ><?= $t['alamat_pelanggan'] ?></td>
+                                <td class="d-sm-none" ><?= $t['nama_pegawai'] ?></td>
+                                <td><?= $t['tanggal_service'] ?></td>
+                                <td>
+                                    <h5>
+                                        <span class="badge bagde-md bg-success"><?= $t['status_service'] ?></span>
+                                    </h5>
+                                </td>
+                            </tr>
+                    <?php endforeach ?>
+                        </tbody>
                     </table>
                 <?php else : ?>
                     <h1> <?= $pesan; ?> </h1>
