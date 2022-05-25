@@ -70,31 +70,33 @@ if ($_SESSION['nama_pelanggan'] !== null) {
         <!-- Page content-->
         <div class="container-md">
           <?php if ($jumlahdata > 0) : ?>
-            <table class="table table-responsive rounded">
-              <caption>List dari Service dipesan</caption>
-              <thead class="table-dark">
-                <tr class="text-light h5">
-                  <th scope="col">Nama Pegawai</th>
-                  <th scope="col">Nomer Pegawai</th>
-                  <th scope="col">Tanggal Service</th>
-                  <th scope="col">Status Service</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($getAllData as $t) : ?>
-                  <tr class="text-dark text-capitalize align-middle m-3">
-                    <td><?= $t['nama_pegawai'] ?></td>
-                    <td><?= $t['no_telpon_pegawai'] ?></td>
-                    <td><?= $t['tanggal_service'] ?></td>
-                    <td>
-                      <h5>
-                        <span class="badge badge-lg rounded-pill bg-secondary text-light"><?= $t['status_service'] ?></span>
-                      </h5>
-                    </td>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped table-hover">
+                <caption>List dari Service dipesan</caption>
+                <thead class="table-dark">
+                  <tr class="text-light h5">
+                    <th scope="col">Nama Pegawai</th>
+                    <th scope="col">Nomer Pegawai</th>
+                    <th scope="col">Tanggal Service</th>
+                    <th scope="col">Status Service</th>
                   </tr>
-                <?php endforeach ?>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <?php foreach ($getAllData as $t) : ?>
+                    <tr class="text-dark text-capitalize align-middle m-3">
+                      <td><?= $t['nama_pegawai'] ?></td>
+                      <td><?= $t['no_telpon_pegawai'] ?></td>
+                      <td><?= $t['tanggal_service'] ?></td>
+                      <td>
+                        <h5>
+                          <span class="badge badge-lg rounded-pill bg-secondary text-light"><?= $t['status_service'] ?></span>
+                        </h5>
+                      </td>
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+              </table>
+            </div>
           <?php else : ?>
             <h1> <?= $pesan; ?> </h1>
           <?php endif ?>

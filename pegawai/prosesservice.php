@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['role'])) {
   include '../conn.php';
   $id_antrian = $_GET['id'];
-  $sql = "SELECT * FROM antriservice JOIN pelanggan WHERE id_antrian = $id_antrian";
+  $sql = "SELECT * FROM antriservice JOIN pelanggan ON antriservice.id_pelanggan = pelanggan.id_pelanggan WHERE id_antrian = $id_antrian";
   $execdata =  mysqli_query($conn, $sql);
   $dataantri = mysqli_fetch_array($execdata, MYSQLI_ASSOC);
   $nama = $dataantri['nama_pelanggan'];

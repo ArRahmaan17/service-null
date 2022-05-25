@@ -68,33 +68,35 @@ if ($_SESSION['nama_pelanggan'] !== null) {
           </div>
         </nav>
         <!-- Page content-->
-        <div class="container-fluid">
+        <div class="container">
           <?php if ($jumlahdata > 0) : ?>
-            <table class="table table-responsive">
-              <caption>List dari Service Selesai</caption>
-              <thead class="table-dark">
-                <tr class="text-light h5">
-                  <th scope="col">Nama Pegawai</th>
-                  <th scope="col">Nomer Pegawai</th>
-                  <th scope="col">Tanggal Service</th>
-                  <th scope="col">Status Service</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($getAllData as $t) : ?>
-                  <tr class="text-dark align-middle text-capitalize">
-                    <td><?= $t['nama_pegawai'] ?></td>
-                    <td><?= $t['no_telpon_pegawai'] ?></td>
-                    <td><?= $t['tanggal_service'] ?></td>
-                    <td>
-                      <h4>
-                        <?= ($t['status_service'] === 'selesai') ? '<span class="badge badge-lg rounded-pill bg-success text-capitalize">Selesai</span>' : ''; ?>
-                      </h4>
-                    </td>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped table-hover">
+                <caption>List dari Service Selesai</caption>
+                <thead>
+                  <tr class="text-light h5">
+                    <th scope="col">Nama Pegawai</th>
+                    <th scope="col">Nomer Pegawai</th>
+                    <th scope="col">Tanggal Service</th>
+                    <th scope="col">Status Service</th>
                   </tr>
-                <?php endforeach ?>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <?php foreach ($getAllData as $t) : ?>
+                    <tr class="text-dark align-middle text-capitalize">
+                      <td><?= $t['nama_pegawai'] ?></td>
+                      <td><?= $t['no_telpon_pegawai'] ?></td>
+                      <td><?= $t['tanggal_service'] ?></td>
+                      <td>
+                        <h4>
+                          <?= ($t['status_service'] === 'selesai') ? '<span class="badge badge-lg rounded-pill bg-success text-capitalize">Selesai</span>' : ''; ?>
+                        </h4>
+                      </td>
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+              </table>
+            </div>
           <?php else : ?>
             <h1> <?= $pesan; ?> </h1>
           <?php endif ?>

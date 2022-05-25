@@ -72,29 +72,31 @@ if ($_SESSION['role'] === 'teknisi') {
                 <div class="container">
                     <div class="row justify-content-start">
                         <?php if ($jumlahdata > 0) : ?>
-                            <table class="table table-responsive">
-                                <caption>List dari Teknisi Yang Sedang Service</caption>
-                                <thead class="table-dark">
-                                    <tr class="h5">
-                                        <td class="col-1">Nama Pelanggan</td>
-                                        <td class="col-1">Alamat Pelanggan</td>
-                                        <td class="col-1">Tanggal Antri</td>
-                                        <td class="col-1">Terima Service</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($getAllData as $t) : ?>
-                                        <tr class="text-dark">
-                                            <td class="col-1"><?= $t['nama_pelanggan'] ?></td>
-                                            <td class="col-1"><?= $t['alamat_pelanggan'] ?></td>
-                                            <td class="col-1"><?= $t['tanggal_antri'] ?></td>
-                                            <td class="col-1">
-                                                <a class="btn btn-info" href="prosesservice.php?id=<?= $t['id_antrian'] ?>">Terima Service</a>
-                                            </td>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover">
+                                    <caption>List dari Teknisi Yang Sedang Service</caption>
+                                    <thead class="table-dark">
+                                        <tr class="h5">
+                                            <td class="col-1 text-center">Nama Pelanggan</td>
+                                            <td class="col-1 text-center">Alamat Pelanggan</td>
+                                            <td class="col-1 text-center">Tanggal Antri</td>
+                                            <td class="col-1 text-center">Terima Service</td>
                                         </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($getAllData as $t) : ?>
+                                            <tr class="text-dark">
+                                                <td class="col-1 text-center"><?= $t['nama_pelanggan'] ?></td>
+                                                <td class="col-1 text-center"><?= $t['alamat_pelanggan'] ?></td>
+                                                <td class="col-1 text-center"><?= $t['tanggal_antri'] ?></td>
+                                                <td class="col-1 text-center">
+                                                    <a class="btn btn-info" href="prosesservice.php?id=<?= $t['id_antrian'] ?>">Terima Service</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         <?php else : ?>
                             <h1> <?= $pesan; ?> </h1>
                         <?php endif ?>

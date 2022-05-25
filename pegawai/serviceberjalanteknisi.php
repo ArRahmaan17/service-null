@@ -72,40 +72,42 @@ if ($_SESSION['role'] === 'teknisi') {
         <div class="container">
           <div class="row justify-content-start">
             <?php if ($jumlahdata > 0) : ?>
-              <table class="table table-responsive">
-                <caption>List dari Teknisi Yang Sedang Service</caption>
-                <thead class="table-dark">
-                  <tr class="h5">
-                    <th class="col-1">Nama Pelanggan</th>
-                    <th class="col-1">Alamat Pelanggan</th>
-                    <th class="col-1">Tanggal Service</th>
-                    <th class="col-1">Wa Pelanggan</th>
-                    <th class="col-1">Edit</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php foreach ($getAllData as $t) : ?>
-                    <tr class="text-dark">
-                      <td class="col-1 text-center"><?= $t['nama_pelanggan'] ?></td>
-                      <td class="col-1 text-center"><?= $t['alamat_pelanggan'] ?></td>
-                      <td class="col-1 text-center"><?= $t['tanggal_service'] ?></td>
-                      <td style="display:none ;"><?php $pesanwa = "Service Bp/Ibu" . $t['nama_pelanggan'] . " Sudah Selesai,terima Kasih Telah menggunakan Jasa Service Kami"; ?></td>
-                      <td class="col-1 text-center"><a class="text-success" href="https://wa.me/<?= $t['no_telpon_pelanggan'] ?>?text=<?= $pesanwa ?>">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chat-dots-fill" role="img" viewBox="0 0 16 16">
-                            <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                          </svg></a></td>
-                      <td class="col-1 text-center">
-                        <form action="proses.php" method="post">
-                          <input type="hidden" name="id_service" value="<?= $t['id_service'] ?>">
-                          <input type="hidden" name="id_pegawai" value="<?= $t['id_pegawai'] ?>">
-                          <input type="hidden" name="id_pelanggan" value="<?= $t['id_pelanggan'] ?>">
-                          <input type="submit" name="selesaijasa" class="btn btn-warning" value="Selesai">
-                        </form>
-                      </td>
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                  <caption>List dari Teknisi Yang Sedang Service</caption>
+                  <thead class="table-dark">
+                    <tr class="h5">
+                      <th class="col-1 text-center">Nama Pelanggan</th>
+                      <th class="col-1 text-center">Alamat Pelanggan</th>
+                      <th class="col-1 text-center">Tanggal Service</th>
+                      <th class="col-1 text-center">Wa Pelanggan</th>
+                      <th class="col-1 text-center">Edit</th>
                     </tr>
-                  <?php endforeach ?>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($getAllData as $t) : ?>
+                      <tr class="text-dark">
+                        <td class="col-1 text-center"><?= $t['nama_pelanggan'] ?></td>
+                        <td class="col-1 text-center"><?= $t['alamat_pelanggan'] ?></td>
+                        <td class="col-1 text-center"><?= $t['tanggal_service'] ?></td>
+                        <td style="display:none ;"><?php $pesanwa = "Service Bp/Ibu" . $t['nama_pelanggan'] . " Sudah Selesai,terima Kasih Telah menggunakan Jasa Service Kami"; ?></td>
+                        <td class="col-1 text-center"><a class="text-success" href="https://wa.me/<?= $t['no_telpon_pelanggan'] ?>?text=<?= $pesanwa ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chat-dots-fill" role="img" viewBox="0 0 16 16">
+                              <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                            </svg></a></td>
+                        <td class="col-1 text-center">
+                          <form action="proses.php" method="post">
+                            <input type="hidden" name="id_service" value="<?= $t['id_service'] ?>">
+                            <input type="hidden" name="id_pegawai" value="<?= $t['id_pegawai'] ?>">
+                            <input type="hidden" name="id_pelanggan" value="<?= $t['id_pelanggan'] ?>">
+                            <input type="submit" name="selesaijasa" class="btn btn-warning" value="Selesai">
+                          </form>
+                        </td>
+                      </tr>
+                    <?php endforeach ?>
+                  </tbody>
+                </table>
+              </div>
             <?php else : ?>
               <h1> <?= $pesan; ?> </h1>
             <?php endif ?>

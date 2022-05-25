@@ -10,7 +10,7 @@ if ($_SESSION['nama_pelanggan'] !== null) {
     $execservice = mysqli_query($conn, $queryservice);
     $jumlahdata = mysqli_num_rows($exec);
     $jumlahdatasemua = mysqli_num_rows($execservice);
-    if ($jumlahdata > 1) {
+    if ($jumlahdata > 0) {
         $pesan =  "$jumlahdata Orang Sedang mengantri dan $jumlahdatasemua Orang yang belum di proses";
     }
 }
@@ -70,8 +70,10 @@ if ($_SESSION['nama_pelanggan'] !== null) {
                 </nav>
                 <!-- Page content-->
                 <div class="container">
-                    <h1> <?= $pesan; ?> </h1>
-                    <form action="proses.php" method="POST">
+                    <?php if (isset($pesan)) : ?>
+                        <h1> <?= $pesan; ?> </h1>
+                    <?php endif ?>
+                    <form class="mt-5" action="proses.php" method="POST">
                         <input type="hidden" name="id_pelanggan" value="<?= $_SESSION['id_pelanggan'] ?>">
                         <input class="btn btn-primary col-4" type="submit" value="ANTRI SERVICE" name="antri">
                     </form>
