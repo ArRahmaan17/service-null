@@ -73,7 +73,7 @@ if ($_SESSION['nama_pelanggan'] !== null) {
             <div class="table-responsive">
               <table class="table table-bordered table-striped table-hover">
                 <caption>List dari Service Selesai</caption>
-                <thead>
+                <thead class="table-dark">
                   <tr class="text-light h5">
                     <th scope="col">Nama Pegawai</th>
                     <th scope="col">Nomer Pegawai</th>

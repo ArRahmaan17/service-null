@@ -70,6 +70,17 @@ if ($_SESSION['nama_pelanggan'] !== null) {
                 </nav>
                 <!-- Page content-->
                 <div class="container">
+                    <?php if (isset($_GET['pesan'])) : ?>
+                        <?php if ($_GET['pesan'] === "berhasil") : ?>
+                            <div class="alert alert-success m-4" role="alert">
+                                Berhasil Menambahkan antrian
+                            </div>
+                        <?php elseif ($_GET['pesan'] === "gagal") : ?>
+                            <div class="alert alert-danger m-4" role="alert">
+                                Gagal Menambahkan Antrian
+                            </div>
+                        <?php endif ?>
+                    <?php endif ?>
                     <?php if (isset($pesan)) : ?>
                         <h1> <?= $pesan; ?> </h1>
                     <?php endif ?>

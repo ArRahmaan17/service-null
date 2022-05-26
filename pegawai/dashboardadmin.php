@@ -82,25 +82,31 @@ if ($_SESSION['role'] === 'admin') {
                 </nav>
                 <!-- Page content-->
                 <div class="container">
-                    <form action="" method="post">
-                        <div class="row g-3 mx-5 px-3 my-4">
-                            <div class="col-2">
-                                <input type="date" class="form-control" max="<?= $tanggal ?>" name="awal" value="<?= $tanggal ?>">
+                    <div class="d-none d-sm-block d-md-block">
+                        <form action="" method="post">
+                            <div class="row g-3 mx-5 px-3 my-4">
+                                <div class="col-2">
+                                    <input type="date" class="form-control " max="<?= $tanggal ?>" name="awal" value="<?= $tanggal ?>">
+                                </div>
+                                <div class="col-2">
+                                    <input type="date" class="form-control" max="<?= $tanggal ?>" name="akhir" value="<?= $tanggal ?>">
+                                </div>
+                                <div class=" col-2">
+                                    <input class="btn btn-success" type="submit" name="print" value="PRINT">
+                                </div>
                             </div>
-                            <div class="col-2">
-                                <input type="date" class="form-control" max="<?= $tanggal ?>" name="akhir" value="<?= $tanggal ?>">
-                            </div>
-                            <div class=" col-2">
-                                <input class="btn btn-success" type="submit" name="print" value="PRINT">
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <div class="m-4 d-block d-sm-none alert alert-info" role="alert">
+                        fitur print hanya bisa digunakan di laptop atau tablet
+                    </div>
+
                     <?php if ($jumlahdata > 0) : ?>
-                        <div class="table-responsive">
+                        <div class=" table-responsive">
                             <table class="table table-bordered table-striped table-hover">
-                                <caption>List dari Teknisi Yang Sedang Service</caption>
+                                <caption><?= $title ?></caption>
                                 <thead class="table-dark">
-                                    <tr class="h5">
+                                    <tr>
                                         <th scope="col">Nama Pelanggan</th>
                                         <th scope="col">Nomer Pelanggan</th>
                                         <th scope="col">Alamat Pelanggan</th>
@@ -111,7 +117,7 @@ if ($_SESSION['role'] === 'admin') {
                                 </thead>
                                 <tbody>
                                     <?php foreach ($data as $t) : ?>
-                                        <tr class="text-dark fw-bold">
+                                        <tr class="text-dark">
                                             <td><?= $t['nama_pelanggan'] ?></td>
                                             <td><?= $t['no_telpon_pelanggan'] ?></td>
                                             <td><?= $t['alamat_pelanggan'] ?></td>

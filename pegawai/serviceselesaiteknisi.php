@@ -70,6 +70,13 @@ if ($_SESSION['role'] === 'teknisi') {
         </nav>
         <!-- Page content-->
         <div class="container">
+          <?php if (isset($_GET['pesan'])) : ?>
+            <?php if ($_GET['pesan'] === "berhasil") : ?>
+              <div class="alert alert-success" role="alert">
+                <?= "Berhasil Update Status" ?>
+              </div>
+            <?php endif ?>
+          <?php endif ?>
           <?php if ($jumlahdata > 0) : ?>
             <div class="table-responsive">
               <table class="table table-bordered table-striped table-hover">

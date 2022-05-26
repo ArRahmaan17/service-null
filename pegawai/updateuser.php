@@ -81,9 +81,9 @@ if (isset($_SESSION['role'])) {
             <input value="<?= $getAllData['password'] ?>" required type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
-          <div class="form-floating mb-2">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">+62</span>
             <input value="<?= $getAllData['no_telpon_pegawai'] ?>" required type="number" class="form-control" id="floatingInput" name="nomer" placeholder="Nomer Telpon">
-            <label for="floatingInput">Nomer Telpon</label>
           </div>
           <div class="form-floating mb-2">
             <input value="<?= $getAllData['alamat_pegawai'] ?>" required type="text" class="form-control" id="floatingInput" name="alamat" placeholder="Alamat">
