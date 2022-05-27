@@ -80,7 +80,7 @@ if ($_SESSION['role'] === 'teknisi') {
           <?php if ($jumlahdata > 0) : ?>
             <div class="table-responsive">
               <table class="table table-bordered table-striped table-hover">
-                <caption>List dari Service Yang Sudah Selesai</caption>
+                <caption><?= $title ?></caption>
                 <thead class="table-dark">
                   <tr>
                     <th class="col-1 text-center">Nama Pelanggan</th>

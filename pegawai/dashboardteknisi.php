@@ -72,7 +72,7 @@ if ($_SESSION['role'] === 'teknisi') {
                 <div class="container">
                     <?php if (isset($_GET['pesan'])) : ?>
                         <?php if ($_GET['pesan'] === "gagal") : ?>
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger my-3" role="alert">
                                 <?= "Gagal Update Status, Silahkan Cek Kembali" ?>
                             </div>
                         <?php endif ?>
@@ -81,7 +81,7 @@ if ($_SESSION['role'] === 'teknisi') {
                         <?php if ($jumlahdata > 0) : ?>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover">
-                                    <caption>List dari Teknisi Yang Sedang Service</caption>
+                                    <caption><?= $title ?></caption>
                                     <thead class="table-dark">
                                         <tr class="h5">
                                             <td class="col-1 text-center">Nama Pelanggan</td>
