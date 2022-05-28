@@ -112,4 +112,7 @@ if ($_SESSION['nama_pelanggan'] !== null) {
   </body>
 
   </html>
+
+<?php else: ?> 
+  <?php header("location:index.php") ?>
 <?php endif ?>
