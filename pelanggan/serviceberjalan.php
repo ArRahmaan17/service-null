@@ -74,20 +74,23 @@ if ($_SESSION['nama_pelanggan'] !== null) {
               <table class="table table-bordered table-striped table-hover">
                 <caption>List dari Service dipesan</caption>
                 <thead class="table-dark">
-                  <tr class="text-light h5">
-                    <th scope="col">Nama Pegawai</th>
-                    <th scope="col">Nomer Pegawai</th>
-                    <th scope="col">Tanggal Service</th>
-                    <th scope="col">Status Service</th>
+                  <tr>
+                    <td>Nomer</td>
+                    <td class="text-center">Nama Pegawai</td>
+                    <td class="text-center">Nomer Pegawai</td>
+                    <td class="text-center">Tanggal Service</td>
+                    <td class="text-center">Status Service</td>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $no = 1 ?>
                   <?php foreach ($getAllData as $t) : ?>
-                    <tr class="text-dark text-capitalize align-middle m-3">
-                      <td><?= $t['nama_pegawai'] ?></td>
-                      <td><?= $t['no_telpon_pegawai'] ?></td>
-                      <td><?= $t['tanggal_service'] ?></td>
-                      <td>
+                    <tr>
+                      <td class="text-center"><?= $no++ ?></td>
+                      <td class="text-center"><?= $t['nama_pegawai'] ?></td>
+                      <td class="text-center"><?= $t['no_telpon_pegawai'] ?></td>
+                      <td class="text-center"><?= $t['tanggal_service'] ?></td>
+                      <td class="text-center">
                         <h5>
                           <span class="badge badge-lg rounded-pill bg-secondary text-light"><?= $t['status_service'] ?></span>
                         </h5>

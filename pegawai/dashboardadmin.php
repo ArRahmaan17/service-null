@@ -45,6 +45,25 @@ if ($_SESSION['role'] === 'admin') {
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     </head>
+    <style type="text/css">
+        @media print{
+            #sidebar-wrapper{
+                display: none;
+            }
+            nav.navbar{
+                display: none;
+            }
+            div#navbarSupportedContent{
+                display: none;
+            }
+            form{
+                display: none;
+            }
+            table{
+                min-width: 100%;
+            }
+        }
+    </style>
 
     <body <?= (isset($print)) ? "onload='window.print()'" : ""; ?>>
         <div class="d-flex" id="wrapper">
@@ -107,6 +126,7 @@ if ($_SESSION['role'] === 'admin') {
                                 <caption><?= $title ?></caption>
                                 <thead class="table-dark">
                                     <tr>
+                                        <th scope="col">Nomer</th>
                                         <th scope="col">Nama Pelanggan</th>
                                         <th scope="col">Nomer Pelanggan</th>
                                         <th scope="col">Alamat Pelanggan</th>
@@ -116,8 +136,10 @@ if ($_SESSION['role'] === 'admin') {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($data as $t) : ?>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($data as $t) : ?> 
                                         <tr class="text-dark">
+                                            <td><?= $no++?></td>
                                             <td><?= $t['nama_pelanggan'] ?></td>
                                             <td><?= $t['no_telpon_pelanggan'] ?></td>
                                             <td><?= $t['alamat_pelanggan'] ?></td>

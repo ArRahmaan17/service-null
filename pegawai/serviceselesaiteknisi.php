@@ -83,21 +83,24 @@ if ($_SESSION['role'] === 'teknisi') {
                 <caption><?= $title ?></caption>
                 <thead class="table-dark">
                   <tr>
-                    <th class="col-1 text-center">Nama Pelanggan</th>
-                    <th class="col-1 text-center">Nomer Pelanggan</th>
-                    <th class="col-1 text-center">Alamat Pelanggan</th>
-                    <th class="col-1 text-center">Nama Teknisi</th>
-                    <th class="col-1 text-center">Tanggal Service</th>
+                    <td class="text-center">Nomer</td>
+                    <td class="text-center">Nama Pelanggan</td>
+                    <td class="text-center">Nomer Pelanggan</td>
+                    <td class="text-center">Alamat Pelanggan</td>
+                    <td class="text-center">Nama Teknisi</td>
+                    <td class="text-center">Tanggal Service</td>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $no = 1; ?>
                   <?php foreach ($getAllData as $t) : ?>
                     <tr class="text-dark">
-                      <td class="col-1 text-center"><?= $t['nama_pelanggan'] ?></td>
-                      <td class="col-1 text-center"><?= $t['no_telpon_pelanggan'] ?></td>
-                      <td class="col-1 text-center"><?= $t['alamat_pelanggan'] ?></td>
-                      <td class="col-1 text-center"><?= $t['nama_pegawai'] ?></td>
-                      <td class="col-1 text-center"><?= $t['tanggal_service'] ?></td>
+                      <td class="text-center"><?= $no++ ?></td>
+                      <td class="text-center"><?= $t['nama_pelanggan'] ?></td>
+                      <td class="text-center"><?= $t['no_telpon_pelanggan'] ?></td>
+                      <td class="text-center"><?= $t['alamat_pelanggan'] ?></td>
+                      <td class="text-center"><?= $t['nama_pegawai'] ?></td>
+                      <td class="text-center"><?= $t['tanggal_service'] ?></td>
                     </tr>
                   <?php endforeach ?>
                 </tbody>

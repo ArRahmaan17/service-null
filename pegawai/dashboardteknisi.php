@@ -83,20 +83,23 @@ if ($_SESSION['role'] === 'teknisi') {
                                 <table class="table table-bordered table-striped table-hover">
                                     <caption><?= $title ?></caption>
                                     <thead class="table-dark">
-                                        <tr class="h5">
-                                            <td class="col-1 text-center">Nama Pelanggan</td>
-                                            <td class="col-1 text-center">Alamat Pelanggan</td>
-                                            <td class="col-1 text-center">Tanggal Antri</td>
-                                            <td class="col-1 text-center">Terima Service</td>
+                                        <tr>
+                                            <td class="text-center">Nomer</td>
+                                            <td class="text-center">Nama Pelanggan</td>
+                                            <td class="text-center">Alamat Pelanggan</td>
+                                            <td class="text-center">Tanggal Antri</td>
+                                            <td class="text-center">Terima Service</td>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $no = 1; ?>
                                         <?php foreach ($getAllData as $t) : ?>
                                             <tr class="text-dark">
-                                                <td class="col-1 text-center"><?= $t['nama_pelanggan'] ?></td>
-                                                <td class="col-1 text-center"><?= $t['alamat_pelanggan'] ?></td>
-                                                <td class="col-1 text-center"><?= $t['tanggal_antri'] ?></td>
-                                                <td class="col-1 text-center">
+                                                <td class="text-center"><?= $no++ ?></td>
+                                                <td class="text-center"><?= $t['nama_pelanggan'] ?></td>
+                                                <td class="text-center"><?= $t['alamat_pelanggan'] ?></td>
+                                                <td class="text-center"><?= $t['tanggal_antri'] ?></td>
+                                                <td class="text-center">
                                                     <a class="btn btn-info" href="prosesservice.php?id=<?= $t['id_antrian'] ?>">Terima Service</a>
                                                 </td>
                                             </tr>

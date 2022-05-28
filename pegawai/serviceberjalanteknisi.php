@@ -87,20 +87,23 @@ if ($_SESSION['role'] === 'teknisi') {
                 <table class="table table-bordered table-striped table-hover">
                   <caption><?= $title ?></caption>
                   <thead class="table-dark">
-                    <tr class="h5">
-                      <th class="col-1 text-center">Nama Pelanggan</th>
-                      <th class="col-1 text-center">Alamat Pelanggan</th>
-                      <th class="col-1 text-center">Tanggal Service</th>
-                      <th class="col-1 text-center">Wa Pelanggan</th>
-                      <th class="col-1 text-center">Edit</th>
+                    <tr>
+                      <td class="text-center">Nomer</td>
+                      <td class="text-center">Nama Pelanggan</td>
+                      <td class="text-center">Alamat Pelanggan</td>
+                      <td class="text-center">Tanggal Service</td>
+                      <td class="text-center">Wa Pelanggan</td>
+                      <td class="text-center">Edit</td>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php $no = 1; ?>
                     <?php foreach ($getAllData as $t) : ?>
                       <tr class="text-dark">
-                        <td class="col-1 text-center"><?= $t['nama_pelanggan'] ?></td>
-                        <td class="col-1 text-center"><?= $t['alamat_pelanggan'] ?></td>
-                        <td class="col-1 text-center"><?= $t['tanggal_service'] ?></td>
+                        <td class="text-center"><?= $no++ ?></td>
+                        <td class="text-center"><?= $t['nama_pelanggan'] ?></td>
+                        <td class="text-center"><?= $t['alamat_pelanggan'] ?></td>
+                        <td class="text-center"><?= $t['tanggal_service'] ?></td>
                         <td style="display:none ;"><?php $pesanwa = "Service Bp/Ibu" . $t['nama_pelanggan'] . " Sudah Selesai,terima Kasih Telah menggunakan Jasa Service Kami"; ?></td>
                         <td class="col-1 text-center"><a class="text-success" href="https://wa.me/<?= $t['no_telpon_pelanggan'] ?>?text=<?= $pesanwa ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chat-dots-fill" role="img" viewBox="0 0 16 16">

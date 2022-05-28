@@ -76,6 +76,7 @@ if ($_SESSION['role'] === 'admin') {
                 <a href="tambahteknisi.php" class="btn col-3 mb-2 btn-success">Tambah Teknisi</a>
                 <thead class="table-dark">
                   <tr>
+                    <th scope="col">Nomer</th>
                     <th scope="col">Nama Pegawai</th>
                     <th scope="col">Nomer Pegawai</th>
                     <th scope="col">Alamat Pegawai</th>
@@ -84,8 +85,10 @@ if ($_SESSION['role'] === 'admin') {
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $no = 1; ?>
                   <?php foreach ($getAllData as $s) : ?>
                     <tr>
+                      <td><?= $no++ ?></td>
                       <td><?= $s['nama_pegawai'] ?></td>
                       <td><?= $s['no_telpon_pegawai'] ?></td>
                       <td><?= $s['alamat_pegawai'] ?></td>

@@ -51,7 +51,7 @@ if (isset($_SESSION['role'])) {
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="../pegawai/">Back</a>
+                  <a class="nav-link" href="../pelanggan/">Back</a>
                 </li>
               </ul>
             </div>
