@@ -13,6 +13,15 @@ if ($_SESSION['role'] === 'admin') {
         $pesan = "Tidak Ada Service Hari ini <br> Sabar rezeki sudah ada yang ngatur";
     }
 
+    if (isset($_POST['kelola'])) {
+        $bulan = $_POST['bulan'];
+        $sql = "SELECT * FROM service JOIN pegawai ON pegawai.id_pegawai = service.id_pegawai JOIN pelanggan ON pelanggan.id_pelanggan = service.id_pelanggan WHERE `status_service` = 'selesai' AND MONTH(tanggal_service) = $bulan";
+        $exec = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_all($exec, MYSQLI_ASSOC);
+        if (mysqli_num_rows($exec) > 0 ) {
+            $bulan;
+        }
+    }
     if (isset($_POST['print'])) {
         $awal = $_POST['awal'];
         $akhir = $_POST['akhir'];
@@ -20,7 +29,7 @@ if ($_SESSION['role'] === 'admin') {
         $sql = "SELECT * FROM service JOIN pelanggan ON service.id_pelanggan = pelanggan.id_pelanggan JOIN pegawai ON service.id_pegawai = pegawai.id_pegawai WHERE status_service = 'selesai' AND (tanggal_service BETWEEN '$awal' AND '$akhir')";
         $execprint = mysqli_query($conn, $sql);
         $data = mysqli_fetch_all($execprint, MYSQLI_ASSOC);
-        if (mysqli_num_rows($execprint) >= 1) {
+        if (mysqli_num_rows($execprint) > 0 ) {
             $print = "print";
         }
     }
@@ -48,6 +57,9 @@ if ($_SESSION['role'] === 'admin') {
     <style type="text/css">
         @media print{
             #sidebar-wrapper{
+                display: none;
+            }
+            div.alert-info{
                 display: none;
             }
             nav.navbar{
@@ -102,19 +114,46 @@ if ($_SESSION['role'] === 'admin') {
                 <!-- Page content-->
                 <div class="container">
                     <div class="d-none d-sm-block d-md-block">
-                        <form action="" method="post">
-                            <div class="row g-3 mx-5 px-3 my-4">
-                                <div class="col-2">
-                                    <input type="date" class="form-control " max="<?= $tanggal ?>" name="awal" value="<?= $tanggal ?>">
-                                </div>
-                                <div class="col-2">
-                                    <input type="date" class="form-control" max="<?= $tanggal ?>" name="akhir" value="<?= $tanggal ?>">
-                                </div>
-                                <div class=" col-2">
-                                    <input class="btn btn-success" type="submit" name="print" value="PRINT">
-                                </div>
+                        <div class="row">
+                            <div class="col">
+                                <form action="" method="post">
+                                    <div class="row g-2 mx-5 px-3 my-4">
+                                        <div class="col">
+                                            <input type="date" class="form-control " max="<?= $tanggal ?>" name="awal" value="<?= $tanggal ?>">
+                                        </div>
+                                        <div class="col">
+                                            <input type="date" class="form-control" max="<?= $tanggal ?>" name="akhir" value="<?= $tanggal ?>">
+                                        </div>
+                                        <div class="col">
+                                            <input class="btn btn-success" type="submit" name="print" value="Print">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                            <div class="col">
+                                <form action="" method="post">
+                                    <div class="row g-2 mx-5 px-3 my-4">
+                                       <select class="form-select col" name="bulan" aria-label="Default select example">
+                                            <option selected value="1">Januari</option>
+                                            <option value="2">Febuari</option>
+                                            <option value="3">Maret</option>
+                                            <option value="4">April</option>
+                                            <option value="5">Mei</option>
+                                            <option value="6">Juni</option>
+                                            <option value="7">Juli</option>
+                                            <option value="8">Agustus</option>
+                                            <option value="9">September</option>
+                                            <option value="10">Oktober</option>
+                                            <option value="11">November</option>
+                                            <option value="12">Desember</option>
+                                        </select>
+                                        <div class=" col">
+                                            <input class="btn btn-success" type="submit" name="kelola" value="Kelola">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="m-4 d-block d-sm-none alert alert-info" role="alert">
                         fitur print hanya bisa digunakan di laptop atau tablet
