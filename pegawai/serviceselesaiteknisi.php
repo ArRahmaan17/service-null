@@ -42,6 +42,8 @@ if ($_SESSION['role'] === 'teknisi') {
           <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Pesanan Jasa Service") ? 'active' : ''; ?>" href="dashboardteknisi.php">Pesanan Masuk</a>
           <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Service Sedang Proses") ? 'active' : ''; ?>" href="serviceberjalanteknisi.php">Service Sedang Proses</a>
           <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Riwayat Service Saya") ? 'active' : ''; ?>" href="serviceselesaiteknisi.php">Riwayat Service Saya</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Laporan Service") ? 'active' : ''; ?>" href="dashboardadmin.php">Laporan Service</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Update Teknisi") ? 'active' : ''; ?>" href="editteknisi.php">Edit Pegawai</a>
         </div>
       </div>
       <!-- Page content wrapper-->
@@ -77,45 +79,47 @@ if ($_SESSION['role'] === 'teknisi') {
               </div>
             <?php endif ?>
           <?php endif ?>
-          <?php if ($jumlahdata > 0) : ?>
-            <div class="table-responsive">
-              <table class="table table-bordered table-striped table-hover">
-                <caption><?= $title ?></caption>
-                <thead class="table-dark">
-                  <tr>
-                    <td class="text-center">Nomer</td>
-                    <td class="text-center">Nama Pelanggan</td>
-                    <td class="text-center">Nomer Pelanggan</td>
-                    <td class="text-center">Alamat Pelanggan</td>
-                    <td class="text-center">Nama Teknisi</td>
-                    <td class="text-center">Tanggal Service</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $no = 1; ?>
-                  <?php foreach ($getAllData as $t) : ?>
-                    <tr class="text-dark">
-                      <td class="text-center"><?= $no++ ?></td>
-                      <td class="text-center"><?= $t['nama_pelanggan'] ?></td>
-                      <td class="text-center"><?= $t['no_telpon_pelanggan'] ?></td>
-                      <td class="text-center"><?= $t['alamat_pelanggan'] ?></td>
-                      <td class="text-center"><?= $t['nama_pegawai'] ?></td>
-                      <td class="text-center"><?= $t['tanggal_service'] ?></td>
+          <div class="row justify-content-start overflow-auto" style="height: 90vh;">
+            <?php if ($jumlahdata > 0) : ?>
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                  <caption><?= $title ?></caption>
+                  <thead class="table-dark">
+                    <tr>
+                      <td class="text-center">Nomer</td>
+                      <td class="text-center">Nama Pelanggan</td>
+                      <td class="text-center">Nomer Pelanggan</td>
+                      <td class="text-center">Alamat Pelanggan</td>
+                      <td class="text-center">Nama Teknisi</td>
+                      <td class="text-center">Tanggal Service</td>
                     </tr>
-                  <?php endforeach ?>
-                </tbody>
-              </table>
-            <?php else : ?>
-              <h1> <?= $pesan; ?> </h1>
-            <?php endif ?>
-            </div>
+                  </thead>
+                  <tbody>
+                    <?php $no = 1; ?>
+                    <?php foreach ($getAllData as $t) : ?>
+                      <tr class="text-dark">
+                        <td class="text-center"><?= $no++ ?></td>
+                        <td class="text-center"><?= $t['nama_pelanggan'] ?></td>
+                        <td class="text-center"><?= $t['no_telpon_pelanggan'] ?></td>
+                        <td class="text-center"><?= $t['alamat_pelanggan'] ?></td>
+                        <td class="text-center"><?= $t['nama_pegawai'] ?></td>
+                        <td class="text-center"><?= $t['tanggal_service'] ?></td>
+                      </tr>
+                    <?php endforeach ?>
+                  </tbody>
+                </table>
+              <?php else : ?>
+                <h1> <?= $pesan; ?> </h1>
+              <?php endif ?>
+              </div>
+
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- Core theme JS-->
-    <script src="../assets/js/sidebars.js"></script>
+      <!-- Bootstrap core JS-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <!-- Core theme JS-->
+      <script src="../assets/js/sidebars.js"></script>
   </body>
 
   </html>

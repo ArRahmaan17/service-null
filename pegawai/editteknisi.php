@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['role'] === 'admin') {
+if ($_SESSION['role'] === 'teknisi') {
   include '../conn.php';
   $title = "Update Teknisi";
   $querypesanservice = "SELECT * FROM pegawai WHERE role = 'teknisi'";
@@ -15,7 +15,7 @@ if ($_SESSION['role'] === 'admin') {
 
 ?>
 
-<?php if ($_SESSION['role'] === 'admin') : ?>
+<?php if ($_SESSION['role'] === 'teknisi') : ?>
   <!DOCTYPE html>
   <html lang="en">
 
@@ -37,7 +37,10 @@ if ($_SESSION['role'] === 'admin') {
       <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading border-bottom bg-light"><?= $title ?></div>
         <div class="list-group list-group-flush">
-          <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "History Pesanan Service") ? 'active' : ''; ?>" href="dashboardadmin.php">History Pesanan Service</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Pesanan Jasa Service") ? 'active' : ''; ?>" href="dashboardteknisi.php">Pesanan Masuk</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Service Sedang Proses") ? 'active' : ''; ?>" href="serviceberjalanteknisi.php">Service Sedang Proses</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Riwayat Service Saya") ? 'active' : ''; ?>" href="serviceselesaiteknisi.php">Riwayat Service Saya</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Laporan Service") ? 'active' : ''; ?>" href="dashboardadmin.php">Laporan Service</a>
           <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Update Teknisi") ? 'active' : ''; ?>" href="editteknisi.php">Edit Pegawai</a>
         </div>
       </div>

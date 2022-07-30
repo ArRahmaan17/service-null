@@ -42,6 +42,8 @@ if ($_SESSION['role'] === 'teknisi') {
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Pesanan Jasa Service") ? 'active' : ''; ?>" href="dashboardteknisi.php">Pesanan Masuk</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Service Sedang Proses") ? 'active' : ''; ?>" href="serviceberjalanteknisi.php">Service Sedang Proses</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Riwayat Service Saya") ? 'active' : ''; ?>" href="serviceselesaiteknisi.php">Riwayat Service Saya</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Laporan Service") ? 'active' : ''; ?>" href="dashboardadmin.php">Laporan Service</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 <?= ($title === "Update Teknisi") ? 'active' : ''; ?>" href="editteknisi.php">Edit Pegawai</a>
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -77,10 +79,10 @@ if ($_SESSION['role'] === 'teknisi') {
                             </div>
                         <?php endif ?>
                     <?php endif ?>
-                    <div class="row justify-content-start">
+                    <div class="row justify-content-start overflow-auto" style="height: 90vh;">
                         <?php if ($jumlahdata > 0) : ?>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover">
+                            <div class="table-responsive ">
+                                <table class="table table-bordered table-striped table-hover ">
                                     <caption><?= $title ?></caption>
                                     <thead class="table-dark">
                                         <tr>
