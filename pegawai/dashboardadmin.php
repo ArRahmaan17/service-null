@@ -18,7 +18,7 @@ if ($_SESSION['role'] === 'admin') {
         $sql = "SELECT * FROM service JOIN pegawai ON pegawai.id_pegawai = service.id_pegawai JOIN pelanggan ON pelanggan.id_pelanggan = service.id_pelanggan WHERE `status_service` = 'selesai' AND MONTH(tanggal_service) = $bulan";
         $exec = mysqli_query($conn, $sql);
         $data = mysqli_fetch_all($exec, MYSQLI_ASSOC);
-        if (mysqli_num_rows($exec) > 0 ) {
+        if (mysqli_num_rows($exec) > 0) {
             $bulan;
         }
     }
@@ -29,7 +29,7 @@ if ($_SESSION['role'] === 'admin') {
         $sql = "SELECT * FROM service JOIN pelanggan ON service.id_pelanggan = pelanggan.id_pelanggan JOIN pegawai ON service.id_pegawai = pegawai.id_pegawai WHERE status_service = 'selesai' AND (tanggal_service BETWEEN '$awal' AND '$akhir')";
         $execprint = mysqli_query($conn, $sql);
         $data = mysqli_fetch_all($execprint, MYSQLI_ASSOC);
-        if (mysqli_num_rows($execprint) > 0 ) {
+        if (mysqli_num_rows($execprint) > 0) {
             $print = "print";
         }
     }
@@ -55,23 +55,28 @@ if ($_SESSION['role'] === 'admin') {
         <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     </head>
     <style type="text/css">
-        @media print{
-            #sidebar-wrapper{
+        @media print {
+            #sidebar-wrapper {
                 display: none;
             }
-            div.alert-info{
+
+            div.alert-info {
                 display: none;
             }
-            nav.navbar{
+
+            nav.navbar {
                 display: none;
             }
-            div#navbarSupportedContent{
+
+            div#navbarSupportedContent {
                 display: none;
             }
-            form{
+
+            form {
                 display: none;
             }
-            table{
+
+            table {
                 min-width: 100%;
             }
         }
@@ -133,7 +138,7 @@ if ($_SESSION['role'] === 'admin') {
                             <div class="col">
                                 <form action="" method="post">
                                     <div class="row g-2 mx-5 px-3 my-4">
-                                       <select class="form-select col" name="bulan" aria-label="Default select example">
+                                        <select class="form-select col" name="bulan" aria-label="Default select example">
                                             <option selected value="1">Januari</option>
                                             <option value="2">Febuari</option>
                                             <option value="3">Maret</option>
@@ -176,9 +181,9 @@ if ($_SESSION['role'] === 'admin') {
                                 </thead>
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach ($data as $t) : ?> 
+                                    <?php foreach ($data as $t) : ?>
                                         <tr class="text-dark">
-                                            <td><?= $no++?></td>
+                                            <td><?= $no++ ?></td>
                                             <td><?= $t['nama_pelanggan'] ?></td>
                                             <td><?= $t['no_telpon_pelanggan'] ?></td>
                                             <td><?= $t['alamat_pelanggan'] ?></td>
