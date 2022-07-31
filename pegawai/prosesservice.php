@@ -66,7 +66,7 @@ if (isset($_SESSION['role'])) {
             </div>
             <div class="col-12 d-flex p-2">
               <div class="mb-3 col-6 p-1">
-                <a class="w-100 btn btn-lg btn-success" href="https://wa.me/62<?= $nomer ?>?text=<?= $pesan ?>">Wa pelanggan</a>
+                <a class="w-100 btn btn-lg btn-success" target="blank" href="https://wa.me/62<?= $nomer ?>?text=<?= $pesan ?>">Wa pelanggan</a>
               </div>
               <div class="mb-3 col-6 p-1">
                 <a class="w-100 btn btn-lg btn-danger" href="dashboardteknisi.php">Batal</a>
